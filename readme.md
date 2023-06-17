@@ -113,7 +113,7 @@ cd ..
 # Compile limo_ros2 packages
 cd ~/limo_ros2_ws
 colcon build
-source devel/setup.bash
+source install/setup.bash
 ```
 
 # Use Docker (alternative to direct insallation)
