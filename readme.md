@@ -21,7 +21,7 @@ sudo apt-get install -y --no-install-recommends libusb-1.0-0 udev apt-transport-
 sudo apt install python3-colcon-common-extensions
 ```
 
-## Install ROS 2
+## Install ROS 2 (Humble)
 
 First ensure that the Ubuntu Universe repository is enabled.
 
@@ -57,6 +57,7 @@ Install Ubuntu version specific packages
 
 ```bash
 sudo apt-get install python3-vcstool
+sudo apt-get install libacl1-dev
 python3 -m pip install -U \
    flake8-blind-except \
    flake8-builtins \
@@ -74,6 +75,10 @@ python3 -m pip install -U \
 mkdir -p ~/ros2_humble/src
 cd ~/ros2_humble
 vcs import --input https://raw.githubusercontent.com/ros2/ros2/humble/ros2.repos src
+```
+
+```bash
+colcon build --symlink-install
 ```
 
 ### Clone repository
