@@ -103,7 +103,7 @@ cd ..
 git clone https://ghproxy.com/https://github.com/YDLIDAR/YDLidar-SDK.git
 mkdir -p YDLidar-SDK/build
 cd YDLidar-SDK/build
-cmake
+cmake ..
 make
 sudo make install
 cd ..
