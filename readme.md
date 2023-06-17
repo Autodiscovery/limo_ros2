@@ -17,7 +17,7 @@ Use rosdep to install required packages
 
 ```bash
 apt-get update
-apt-get install -y --no-install-recommends libusb-1.0-0 udev apt-transport-https ca-certificates curl swig software-properties-common python3-pip
+sudo apt-get install -y --no-install-recommends libusb-1.0-0 udev apt-transport-https ca-certificates curl swig software-properties-common python3-pip
 sudo apt install python3-colcon-common-extensions
 ```
 
