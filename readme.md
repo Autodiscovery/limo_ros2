@@ -13,7 +13,7 @@ Setup the environment for running ROS 2 on LIMO robot
 
 Use rosdep to install required packages
 
-# Install essential packages
+## Install essential packages
 
 ```bash
 apt-get update
@@ -21,7 +21,7 @@ apt-get install -y --no-install-recommends libusb-1.0-0 udev apt-transport-https
 sudo apt install python3-colcon-common-extensions
 ```
 
-# Install ROS 2
+## Install ROS 2
 
 First ensure that the Ubuntu Universe repository is enabled.
 
@@ -174,7 +174,7 @@ sleep 2
 ros2 launch limo_bringup navigation2.launch.py
 ```
 
-# start positioning
+## start positioning
 
 ```shell
 rviz2
@@ -183,7 +183,7 @@ ros2 launch build_map_2d revo_build_map_2d.launch.py
 #After the above three command are activated use a separate screen to control the car
 ```
 
-# keyboard control
+## keyboard control
 
 ```shell
 ros2 launch limo_bringup limo_start.launch.py
