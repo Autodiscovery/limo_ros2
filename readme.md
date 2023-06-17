@@ -15,6 +15,69 @@ Setup the environment for running ROS 2 on LIMO robot
 
 Use rosdep to install required packages
 
+# Install essential packages
+
+```bash
+apt-get update
+apt-get install -y --no-install-recommends libusb-1.0-0 udev apt-transport-https ca-certificates curl swig software-properties-common python3-pip
+sudo apt install python3-colcon-common-extensions
+```
+
+# Install ROS 2
+
+First ensure that the Ubuntu Universe repository is enabled.
+
+```bash
+sudo apt install software-properties-common
+sudo add-apt-repository universe
+```
+
+Now add the ROS 2 GPG key with apt.
+
+```bash
+sudo apt update && sudo apt install curl -y
+sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+```
+
+Then add the repository to your sources list.
+
+```bash
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+```
+
+Install common packages.
+
+```bash
+sudo apt update && sudo apt install -y \
+  python3-flake8-docstrings \
+  python3-pip \
+  python3-pytest-cov \
+  ros-dev-tools
+```
+
+Install Ubuntu version specific packages
+
+```bash
+sudo apt-get install python3-vcstool
+python3 -m pip install -U \
+   flake8-blind-except \
+   flake8-builtins \
+   flake8-class-newline \
+   flake8-comprehensions \
+   flake8-deprecated \
+   flake8-import-order \
+   flake8-quotes \
+   "pytest>=5.3" \
+   pytest-repeat \
+   pytest-rerunfailures
+```
+
+```bash
+mkdir -p ~/ros2_humble/src
+cd ~/ros2_humble
+vcs import --input https://raw.githubusercontent.com/ros2/ros2/humble/ros2.repos src
+```
+
 ### Clone repository
 ```bash
 # Create local workspace
@@ -25,29 +88,17 @@ git clone https://github.com/Autodiscovery/limo_ros2 src
 
 mv ~/limo_ros2_ws/src/.devcontainer ~/limo_ros2_ws
 
-# Install essential packages
-apt-get update \
-    && apt-get install -y --no-install-recommends \	
-    libusb-1.0-0 \
-    udev \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    swig \
-    software-properties-common \
-    python3-pip
-
-
 # Install ydlidar driver
-git clone https://ghproxy.com/https://github.com/YDLIDAR/YDLidar-SDK.git &&\
-    mkdir -p YDLidar-SDK/build && \
-    cd YDLidar-SDK/build &&\
-    cmake ..&&\
-    make &&\
-    make install &&\
-    cd .. &&\
-    pip install . &&\
-    cd .. && rm -r YDLidar-SDK 
+cd ..
+git clone https://ghproxy.com/https://github.com/YDLIDAR/YDLidar-SDK.git
+mkdir -p YDLidar-SDK/build
+cd YDLidar-SDK/build
+cmake
+make
+sudo make install
+cd ..
+pip install . 
+cd ..
 
 # Compile limo_ros2 packages
 cd ~/limo_ros2_ws
