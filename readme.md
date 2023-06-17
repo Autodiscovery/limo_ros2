@@ -3,6 +3,12 @@
 This is a fork of https://github.com/agilexrobotics/limo_ros2 that aims to improve on english language support and provide additional resources for education.
 We also aim to follow ROS 2 naming conventions and best practices.
 
+# Autodiscovery SD caerd image with LIMO ROS 2
+
+On the following image ROS 2 Humble is preinstalled and there is no need to complete additional steps.
+
+Download from: 
+
 # Directly on robot：Running on the Jetson Nano:
 
 ## Environment Configuration
