@@ -5,9 +5,7 @@ We also aim to follow ROS 2 naming conventions and best practices.
 
 # Directly on robot：Running on the Jetson Nano:
 
-If CUDA is not installed, use the jetson container to setup the CUDA environment https://github.com/dusty-nv/jetson-containers
-
-# Environment Configuration
+## Environment Configuration
 
 Setup the environment for running ROS 2 on LIMO robot
 
