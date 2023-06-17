@@ -112,7 +112,7 @@ cd ..
 
 # Compile limo_ros2 packages
 cd ~/limo_ros2_ws
-colcon make
+colcon build
 source devel/setup.bash
 ```
 
