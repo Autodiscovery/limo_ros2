@@ -85,6 +85,7 @@ vcs import --input https://raw.githubusercontent.com/ros2/ros2/humble/ros2.repos
 
 ```bash
 colcon build --symlink-install
+. ~/ros2_humble/install/local_setup.bash
 ```
 
 ### Clone repository
